@@ -1,8 +1,7 @@
 .search-container {
     color:white;
-    background:$chalkboard;
-    background-size: cover;
-    height:100vh;
+    background-color:$clr-navy;
+    background-image:linear-gradient(to bottom left, rgba(0,0,0,0), #05445E);
     
     .search-bar {
         display:flex;
@@ -52,14 +51,15 @@
         }
     }
     .cards-container {
+        
         padding:3em;
 
         .card {
             color:black;
             text-align:center;
-            background:$card-background;
+            background:$clr-dark;
             width:12.5rem;
-            height:18.75rem;
+            height:18rem;
             background-size: cover;
             border-radius:10px;
             
@@ -71,13 +71,13 @@
                 justify-content:center;
                 place-items:center;
                 .name {
+                    font-weight:bold;
                     font-size:1.875rem;
                     opacity:1;
                 }
-                .thumbnail {
+                .thumbnail img {
                     width:10.3125rem;
                     height:10.3125rem;
-                    background:$cocktail-image;
                     background-size: cover;
                     box-shadow: 2px 2px 5px black;
                     border-radius:5px;
@@ -107,7 +107,8 @@
             
             &:hover {
                 cursor:pointer;
-                
+                background:$clr-normal;
+                box-shadow:2px 2px 7px black;
                 transform:scale(1.375);
                 transition:0.3s;
                 
@@ -130,10 +131,16 @@
                     }
                     .drink-info {
                         columns:2;
-                        column-rule:1px solid rgba(0, 0, 0, .3);
+                        // column-rule:1px solid rgba(0, 0, 0, .3);
+                        
+                        // display:flex;
+                        // flex-direction:row;
+                        // gap:1em;
+                        // font-weight:bold;
                         
                         span {
-                            font-size:1rem;
+                            font-size:0.75rem;
+                            font-weight:200;
                             opacity:.7;
                             display:block;
                         }
@@ -162,11 +169,11 @@
     30% {
         opacity:0;
         font-size:1.5625rem;
-        transform:translateY(-165%);
+        transform:translateY(-230%);
     }
     100% {
         opacity:1;
         font-size:1.5625rem;
-        transform:translateY(-165%);
+        transform:translateY(-230%);
     }
 }

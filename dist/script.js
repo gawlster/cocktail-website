@@ -13,14 +13,15 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then(res => r
         if (drink.strAlcoholic.includes("Alcohol")) {
             if (drink.strAlcoholic.includes("Optional")) {
                 console.log("optional alcohol")
-                drinkAlcohol.textContent = "OPTIONAL"
+                drinkAlcohol.innerHTML = "<p class='alcohol' data-drink-alcohol>OPTIONAL<span>Alcohol</span></p>"
             } else {
-                drinkAlcohol.textContent = "CONTAINS"
+                drinkAlcohol.innerHTML = "<p class='alcohol' data-drink-alcohol>CONTAINS<span>Alcohol</span></p>"
             }
         } else {
-            drinkAlcohol.textContent = "NO"
+            drinkAlcohol.innerHTML = "<p class='alcohol' data-drink-alcohol>NO<span>Alcohol</span></p>"
         }
-        drinkCategory.textContent = drink.strCategory
+        drinkCategory.innerHTML = "<p class='category' data-drink-category>" + drink.strCategory + "<span>Category</span></p>"
+        thumbnail.innerHTML = "<img src='" + drink.strDrinkThumb + "'></img>"
         
         console.log(drink.strDrink)
         console.log(drink.strAlcoholic)
