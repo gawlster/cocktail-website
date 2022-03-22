@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Cocktails</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="search-container">
+        <div class="search-bar">
+            <div class="category-search">
+                <select name="category" id="category-select">
+                    <option value="0">Browse by category</option>
+                    <option value="1">Alcoholic beverages</option>
+                    <option value="2">NON Alcoholic beverages</option>
+                    <option value="3">Cocktails</option>
+                    <option value="4">Shakes</option>
+                    <option value="5">Shot</option>
+                    <option value="6">Party drinks</option>
+                    <option value="7">Beer</option>
+                </select>
+            </div>
+            <div class="type-search">
+                <input type="text" placeholder="Search for drinks or ingredients">
+            </div>
+            <div class="random-drink">
+                <button id="random-drink-btn">Find me something good!</button>
+            </div>
+        </div>
+        <div class="cards-container" data-drink-card-container></div>
+        <template data-drink-template>
+            <div class="card">
+                <div class="front">
+                    <div class="thumbnail" data-drink-thumbnail></div>
+                    <div class="name" data-drink-name></div>
+                </div>
+                <div class="back">
+                    <div class="drink-info">
+                        <p class="alcohol" data-drink-alcohol><span>Alcohol</span></p>
+                        <p class="category" data-drink-category><span>Category</span></p>
+                    </div>
+                    <div class="recipe-btn" data-drink-recipe-btn>
+                        <a href="#">See the recipe!</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</body>
+</html>
+
+
+
+<!--
+    <div class="card">
+                <div class="front">
+                    <div class="thumbnail"></div>
+                    <div class="name">Cocktail</div>
+                </div>
+                <div class="back">
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores tenetur deserunt id sunt blanditiis quod voluptatem.</div>
+                    <div class="recipe-btn">
+                        <a href="#">See the recipe!</a>
+                    </div>
+                </div>
+            </div>
+-->
