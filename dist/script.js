@@ -1,4 +1,4 @@
-const categories = ["All categories", "Alcohol", "No Alcohol", "Cocktail", "Shot", "punch / Party Drink", "Coffee / tea"]
+const categories = ["All categories", "optional", "Cocktail", "Shot", "punch / Party Drink", "Coffee / tea"]
 
 
 const drinkCardTemplate = document.querySelector("[data-drink-template]")
@@ -9,6 +9,7 @@ const drinkSearch = document.querySelector("[data-search]")
 const categorySearch = document.querySelector("[data-category]")
 
 let drinksArray = []
+let drinksToShow = []
 
 drinkSearch.addEventListener("input", (e) => {
     showDrinks()
@@ -19,19 +20,19 @@ categorySearch.addEventListener("change", (e) => {
 })
 
 function findDrink() {
-    //take into account current search bar and current category search.
-    // choose a random drink that fits those options
-    //if those options have no drinks available, show a random drink from the entire list
-    const categoryValue = categorySearch.options[categorySearch.selectedIndex].value
-    const searchValue = drinkSearch.value.toLowerCase()
-
+    let randomIndex = 0
+    if (drinksToShow.length == 0) {
+        randomIndex = getRandomInt(drinksArray.length)
+        console.log("getting from all drinks, index = ", randomIndex)
+    } else {
+        randomIndex = getRandomInt(drinksToShow.length)
+        console.log("getting from filters, index = ", randomIndex)
+    }
 }
 
 
 function showDrinks() {
     drinksToShow = checkEligibility()
-    console.log(drinksToShow)
-    console.log(drinksToShow.length)
     drinksArray.forEach(drink => {
         drink.element.classList.add("hide")
     })
@@ -41,12 +42,12 @@ function showDrinks() {
 }
 
 function checkEligibility() {
-    let drinksToShow = []
+    drinksToShow = []
     const textValue = drinkSearch.value.toLowerCase()
     const selectValue = categories[categorySearch.value].toLowerCase()
     //add all drinks of the correct category to the output array
     drinksArray.forEach(drink => {
-        if (drink.category.toLowerCase() == selectValue || selectValue == "all categories") {
+        if (drink.category.toLowerCase() == selectValue || selectValue == "all categories" || ((drink.alcoholic.toLowerCase() == "optional" || drink.alcoholic.toLowerCase() == "no") && selectValue == "optional")) {
             if (!drinksToShow.includes(drink)) {
                 drinksToShow.push(drink)
             }
@@ -64,14 +65,12 @@ function checkEligibility() {
     while (drinkIndex < drinksToShowLength) {
         let drink = drinksToShow[drinkIndex]
         let containsIngredient = false
-        console.log(drink)
         drink.ingredients.forEach(ingredient => {
             if (ingredient.toLowerCase().includes(textValue)) {
                 containsIngredient = true
             }
         })
         const isVisibleText = drink.name.toLowerCase().includes(textValue) || drink.category.toLowerCase().includes(textValue) || containsIngredient
-        console.log(isVisibleText)
         if (!isVisibleText) {
             for (let i = 0; i < drinksToShow.length; i++) {
                 if (drinksToShow[i] == drink) {
@@ -94,19 +93,20 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then(res => r
         const drinkName = card.querySelector("[data-drink-name]")
         const drinkAlcohol = card.querySelector("[data-drink-alcohol]")
         const drinkCategory = card.querySelector("[data-drink-category]")
+        let alcoholicContent = ""
         
         drinkName.textContent = drink.strDrink
         if (drink.strAlcoholic.includes("Alcohol")) {
             if (drink.strAlcoholic.includes("Optional")) {
                 drinkAlcohol.innerHTML = "<p class='alcohol' data-drink-alcohol>OPTIONAL<span>Alcohol</span></p>"
-                drink.strAlcoholic = "optional"
+                alcoholicContent = "optional"
             } else {
                 drinkAlcohol.innerHTML = "<p class='alcohol' data-drink-alcohol>CONTAINS<span>Alcohol</span></p>"
-                drink.strAlcoholic = "contains"
+                alcoholicContent = "contains"
             }
         } else {
             drinkAlcohol.innerHTML = "<p class='alcohol' data-drink-alcohol>NO<span>Alcohol</span></p>"
-            drink.strAlcoholic = "no"
+            alcoholicContent = "no"
         }
         drinkCategory.innerHTML = "<p class='category' data-drink-category>" + drink.strCategory + "<span>Category</span></p>"
         thumbnail.innerHTML = "<img src='" + drink.strDrinkThumb + "'></img>"
@@ -183,6 +183,11 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then(res => r
             i+=1
         }
 
-        return {name: drink.strDrink, alcoholic: drink.strAlcoholic, category: drink.strCategory, ingredients: drinkIngredients, element: card}
+        return {name: drink.strDrink, alcoholic: alcoholicContent, category: drink.strCategory, ingredients: drinkIngredients, element: card}
     })
 })
+
+// returns a random number between 0 and max, if max is not specified, either return 0 or 1 at random
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
