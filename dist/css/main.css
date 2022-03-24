@@ -1,3 +1,7 @@
+* {
+  font-family: 'Roboto Slab', serif;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,6 +11,10 @@ body {
 
 .home-content {
   background: #05445E;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0, 0, 0, 0)), to(#043347));
+  background-image: linear-gradient(bottom left, rgba(0, 0, 0, 0), #043347);
+  background-size: cover;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,6 +28,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 1.5em;
   text-align: center;
   padding: 0 2em;
 }
@@ -29,12 +38,11 @@ body {
 }
 
 .home-content .text .title {
-  font-size: 6.25rem;
-  margin-bottom: 1rem;
+  font-size: 5rem;
 }
 
 .home-content .text-snippet {
-  font-size: 2.1875rem;
+  font-size: 1.875rem;
 }
 
 .home-content .button {
@@ -67,6 +75,7 @@ body {
 .search-container {
   color: white;
   background-color: #05445E;
+  min-height: 100vh;
   background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0, 0, 0, 0)), to(#05445E));
   background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0), #05445E);
 }
@@ -127,6 +136,18 @@ body {
 }
 
 .search-container .cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 3em;
 }
 
@@ -138,6 +159,7 @@ body {
   height: 18rem;
   background-size: cover;
   border-radius: 10px;
+  margin: 1.5em;
 }
 
 .search-container .cards-container .card .front {
@@ -183,7 +205,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   place-items: center;
-  gap: 1em;
+  gap: 0.5em;
   font-size: 0.875rem;
   opacity: 0;
   position: absolute;
@@ -192,10 +214,12 @@ body {
 }
 
 .search-container .cards-container .card .back .recipe-btn {
-  padding: .25em;
-  width: 60%;
+  padding: .5em;
+  width: 50%;
   background: black;
   border-radius: 100vh;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .search-container .cards-container .card .back .recipe-btn > a {
@@ -241,15 +265,41 @@ body {
 }
 
 .search-container .cards-container .card:hover .back .drink-info {
-  -webkit-columns: 2;
-          columns: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .75em;
+  height: 5.5em;
+  font-weight: bold;
+}
+
+.search-container .cards-container .card:hover .back .drink-info p {
+  width: 100%;
 }
 
 .search-container .cards-container .card:hover .back .drink-info span {
-  font-size: 0.75rem;
+  width: 100%;
+  font-size: 0.9rem;
   font-weight: 200;
   opacity: .7;
   display: block;
+  text-align: center;
+}
+
+.search-container .cards-container .card:hover .back .drink-info .vl {
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  height: 30%;
+  width: 1px;
+  left: 49%;
+  margin-left: 0;
+  top: 22%;
 }
 
 .hide {

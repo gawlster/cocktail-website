@@ -1,3 +1,8 @@
+* {
+    font-family:'Roboto Slab', serif;
+}
+
+
 body {
     margin:0;
     padding:0;
@@ -6,21 +11,24 @@ body {
 
 .home-content {
     background:$clr-navy;
+    background-image:linear-gradient(bottom left, rgba(0,0,0,0), #043347);
+    background-size:cover;
+    height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    gap:1.5em;
     text-align:center;
     padding:0 2em;
     
     .text {
         color:white;
         .title {
-            font-size:6.25rem;
-            margin-bottom:1rem;
+            font-size:5rem;
         }
         &-snippet {
-            font-size:2.1875rem;
+            font-size:1.875rem;
         }
     }
     .button {

@@ -1,6 +1,7 @@
 .search-container {
     color:white;
     background-color:$clr-navy;
+    min-height:100vh;
     background-image:linear-gradient(to bottom left, rgba(0,0,0,0), #05445E);
     
     .search-bar {
@@ -51,7 +52,10 @@
         }
     }
     .cards-container {
-        
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content: center;
         padding:3em;
 
         .card {
@@ -62,6 +66,7 @@
             height:18rem;
             background-size: cover;
             border-radius:10px;
+            margin:1.5em;
             
             .front {
                 padding:1.2em .5em;
@@ -88,16 +93,17 @@
                 flex-direction:column;
                 justify-content:center;
                 place-items:center;
-                gap:1em;
+                gap:0.5em;
                 font-size:0.875rem;
                 opacity:0;
                 position:absolute;
                 transform:translateY(-75%);
                 .recipe-btn {
-                    padding:.25em;
-                    width:60%;
+                    padding:.5em;
+                    width:50%;
                     background:black;
                     border-radius:100vh;
+                    transition:.2s;
                     & > a {
                         text-decoration:none;
                         color:white;
@@ -130,19 +136,35 @@
                         box-shadow: 2px 2px 5px black;
                     }
                     .drink-info {
-                        columns:2;
+                        // columns:2;
                         // column-rule:1px solid rgba(0, 0, 0, .3);
                         
-                        // display:flex;
-                        // flex-direction:row;
-                        // gap:1em;
-                        // font-weight:bold;
-                        
+                        display:flex;
+                        flex-direction:row;
+                        align-items:center;
+                        gap:.75em;
+
+                        height:5.5em;
+
+                        font-weight:bold;
+                        p {
+                            width:100%;
+                        }
                         span {
-                            font-size:0.75rem;
+                            width:100%;
+                            font-size:0.9rem;
                             font-weight:200;
                             opacity:.7;
                             display:block;
+                            text-align:center;
+                        }
+                        .vl {
+                            border-left:1px solid rgba(0, 0, 0, .3);
+                            height:30%;
+                            width:1px;
+                            left:49%;
+                            margin-left:0;
+                            top:22%;
                         }
                     }
                 }

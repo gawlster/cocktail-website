@@ -11,22 +11,21 @@
     <div class="search-container">
         <div class="search-bar">
             <div class="category-search">
-                <select name="category" id="category-select">
+                <select name="category" id="category-select" data-category>
                     <option value="0">Browse by category</option>
                     <option value="1">Alcoholic beverages</option>
                     <option value="2">NON Alcoholic beverages</option>
                     <option value="3">Cocktails</option>
-                    <option value="4">Shakes</option>
-                    <option value="5">Shot</option>
-                    <option value="6">Party drinks</option>
-                    <option value="7">Beer</option>
+                    <option value="4">Shot</option>
+                    <option value="5">Party drinks</option>
+                    <option value="6">Coffee and tea</option>
                 </select>
             </div>
             <div class="type-search">
-                <input type="text" placeholder="Search for drinks or ingredients">
+                <input type="text" placeholder="Search for drinks or ingredients" data-search>
             </div>
             <div class="random-drink">
-                <button id="random-drink-btn">Find me something good!</button>
+                <button id="random-drink-btn" onclick="findDrink()">Find me something good!</button>
             </div>
         </div>
         <div class="cards-container" data-drink-card-container></div>
@@ -39,6 +38,7 @@
                 <div class="back">
                     <div class="drink-info">
                         <p class="alcohol" data-drink-alcohol><span>Alcohol</span></p>
+                        <div class="vl"></div>
                         <p class="category" data-drink-category><span>Category</span></p>
                     </div>
                     <div class="recipe-btn" data-drink-recipe-btn>
