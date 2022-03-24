@@ -20,14 +20,20 @@ categorySearch.addEventListener("change", (e) => {
 })
 
 function findDrink() {
+    let drinkToShowOnPage
     let randomIndex = 0
     if (drinksToShow.length == 0) {
         randomIndex = getRandomInt(drinksArray.length)
-        console.log("getting from all drinks, index = ", randomIndex)
+        drinkToShowOnPage = drinksArray[randomIndex]
     } else {
         randomIndex = getRandomInt(drinksToShow.length)
-        console.log("getting from filters, index = ", randomIndex)
+        drinkToShowOnPage = drinksToShow[randomIndex]
     }
+    showDrinkPage(drinkToShowOnPage)
+}
+
+function showDrinkPage(drinkToDisplay) {
+    console.log(drinkToDisplay)
 }
 
 
