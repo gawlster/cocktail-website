@@ -10,6 +10,7 @@ const categorySearch = document.querySelector("[data-category]")
 
 let drinksArray = []
 let drinksToShow = []
+var drinkToShowOnPage = {}
 
 drinkSearch.addEventListener("input", (e) => {
     showDrinks()
@@ -19,8 +20,12 @@ categorySearch.addEventListener("change", (e) => {
     showDrinks()
 })
 
+function drinkButtonClick(clickedDrinkID) {
+    sessionStorage.setItem("curDrinkID", clickedDrinkID)
+    showDrinkPage()
+}
+
 function findDrink() {
-    let drinkToShowOnPage
     let randomIndex = 0
     if (drinksToShow.length == 0) {
         randomIndex = getRandomInt(drinksArray.length)
@@ -29,11 +34,12 @@ function findDrink() {
         randomIndex = getRandomInt(drinksToShow.length)
         drinkToShowOnPage = drinksToShow[randomIndex]
     }
-    showDrinkPage(drinkToShowOnPage)
+    sessionStorage.setItem("curDrinkID", drinkToShowOnPage.drinkID)
+    showDrinkPage()
 }
 
-function showDrinkPage(drinkToDisplay) {
-    console.log(drinkToDisplay)
+function showDrinkPage() {
+    window.location.href = "showDrink.html"
 }
 
 
@@ -99,8 +105,12 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then(res => r
         const drinkName = card.querySelector("[data-drink-name]")
         const drinkAlcohol = card.querySelector("[data-drink-alcohol]")
         const drinkCategory = card.querySelector("[data-drink-category]")
+        const drinkID = card.querySelector("[data-drink-id]")
+        const button = card.querySelector("button")
+        button.setAttribute("value", drink.idDrink)
         let alcoholicContent = ""
         
+        drinkID.innerHTML = drink.idDrink
         drinkName.textContent = drink.strDrink
         if (drink.strAlcoholic.includes("Alcohol")) {
             if (drink.strAlcoholic.includes("Optional")) {
@@ -189,7 +199,7 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=").then(res => r
             i+=1
         }
 
-        return {name: drink.strDrink, alcoholic: alcoholicContent, category: drink.strCategory, ingredients: drinkIngredients, element: card}
+        return {drinkID: drink.idDrink, name: drink.strDrink, alcoholic: alcoholicContent, category: drink.strCategory, ingredients: drinkIngredients, element: card}
     })
 })
 

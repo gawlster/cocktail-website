@@ -1,0 +1,89 @@
+.single-drink-container {
+    min-height:100vh;
+    color:white;
+    background:$clr-navy;
+    .image {
+        max-width:100vw;
+        height:40vh;
+        overflow:hidden;
+        background:$clr-navy;
+        background: radial-gradient($clr-dark, $clr-navy);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        img {
+            width:100%;
+            mix-blend-mode: multiply;
+        }
+    }
+    .card {
+        max-width:620px;
+        display:flex;
+        flex-direction:row-reverse;
+        align-items:center;
+        padding:2em;
+        margin: 0 auto;
+        .right {
+            background:$clr-dark;
+            border-radius:1em;
+            padding:1em;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            .drink-name {
+                text-align:center;
+                width:100%;
+            }
+            .details {
+                color:$clr-baby;
+                text-align:center;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                gap:1em;
+                .vl {
+                    border-left:1px solid #d4f1f446;
+                    height:25px;
+                    width:1px;
+                    margin-left:0;
+                }
+            }
+            .instructions {
+                text-align:center;
+            }
+        }
+        .left {
+            height:60%;
+            padding:1em;
+            background:$clr-normal;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            gap:1em;
+            border-radius:1em 0 0 1em;
+            .ingredients-title {
+                text-align:center;
+                margin:0;
+                color:$clr-baby;
+            }
+            p {
+                margin:0;
+            }
+        }
+    }
+    .search-link {
+        display:flex;
+        justify-content:center;
+        width:100%;
+        a {
+            color:$clr-normal;
+            text-decoration:none;
+            font-weight:bold;
+            text-align:center;
+            transition:250ms;
+            &:hover {
+                color:$clr-baby;
+            }
+        }
+    }
+}

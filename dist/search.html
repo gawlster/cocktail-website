@@ -30,6 +30,7 @@
         <div class="cards-container" data-drink-card-container></div>
         <template data-drink-template>
             <div class="card">
+                <div class="drink-id" data-drink-id></div>
                 <div class="front">
                     <div class="thumbnail" data-drink-thumbnail></div>
                     <div class="name" data-drink-name></div>
@@ -41,7 +42,7 @@
                         <p class="category" data-drink-category><span>Category</span></p>
                     </div>
                     <div class="recipe-btn" data-drink-recipe-btn>
-                        <a href="#">See the recipe!</a>
+                        <button onclick="drinkButtonClick(this.value)">See the recipe!</button>
                     </div>
                 </div>
             </div>
