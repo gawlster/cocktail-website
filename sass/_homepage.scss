@@ -10,8 +10,7 @@ body {
 }
 
 .home-content {
-    background:$clr-navy;
-    background-image:linear-gradient(bottom left, rgba(0,0,0,0), #043347);
+    background:$clr-neutral-dark;
     background-size:cover;
     height:100vh;
     display:flex;
@@ -23,7 +22,7 @@ body {
     padding:0 2em;
     
     .text {
-        color:white;
+        color:$clr-neutral-light;
         .title {
             font-size:5rem;
         }
@@ -32,25 +31,25 @@ body {
         }
     }
     .button {
-        background:$clr-baby;
+        background:$clr-accent-default;
         background-position: center;
         background-size:cover;
         border-radius: 1em;
         width:9.375rem;
         height:3.125rem;
         place-items:center;
-        padding-top:1rem;
-        transition:transform .3s;
+        padding: 1rem 1rem 0;
+        transition: .3s;
         
         a {
             font-size:1.5rem;
             text-decoration:none;
-            color:black;
+            color:$clr-neutral-light;
             text-align:center;
         }
         
         &:hover {
-            transform:scale(1.1);
+            box-shadow: 2px 2px 5px black;
         }
     }
 }

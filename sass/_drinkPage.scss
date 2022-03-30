@@ -1,30 +1,33 @@
 .single-drink-container {
     min-height:100vh;
     color:white;
-    background:$clr-navy;
+    background:$clr-neutral-dark;
+
     .image {
         max-width:100vw;
         height:40vh;
         overflow:hidden;
-        background:$clr-navy;
-        background: radial-gradient($clr-dark, $clr-navy);
+        background:$clr-neutral-dark;
+        background: radial-gradient($clr-neutral-darker, $clr-neutral-dark);
         display:flex;
         justify-content:center;
         align-items:center;
         img {
             width:100%;
-            mix-blend-mode: multiply;
+            mix-blend-mode:soft-light;
         }
     }
     .card {
-        max-width:620px;
+        width:calc(min(90vw, 620px));
         display:flex;
         flex-direction:row-reverse;
         align-items:center;
+        justify-content:center;
         padding:2em;
         margin: 0 auto;
         .right {
-            background:$clr-dark;
+            background:$clr-accent-flat-light;
+            color:$clr-neutral-dark;
             border-radius:1em;
             padding:1em;
             display:flex;
@@ -35,14 +38,13 @@
                 width:100%;
             }
             .details {
-                color:$clr-baby;
                 text-align:center;
                 display:flex;
                 justify-content:center;
                 align-items:center;
                 gap:1em;
                 .vl {
-                    border-left:1px solid #d4f1f446;
+                    border-left:1px solid $clr-neutral-dark-semi-trans;
                     height:25px;
                     width:1px;
                     margin-left:0;
@@ -55,7 +57,7 @@
         .left {
             height:60%;
             padding:1em;
-            background:$clr-normal;
+            background:$clr-accent-flat-dark;
             display:flex;
             flex-direction:column;
             justify-content:center;
@@ -64,10 +66,11 @@
             .ingredients-title {
                 text-align:center;
                 margin:0;
-                color:$clr-baby;
+                color:$clr-neutral-darker;
             }
             p {
                 margin:0;
+                color:$clr-neutral-dark;
             }
         }
     }
@@ -75,14 +78,15 @@
         display:flex;
         justify-content:center;
         width:100%;
+        padding-bottom:2rem;
         a {
-            color:$clr-normal;
+            color:$clr-accent-default;
             text-decoration:none;
             font-weight:bold;
             text-align:center;
             transition:250ms;
             &:hover {
-                color:$clr-baby;
+                color:$clr-accent-flat-light;
             }
         }
     }

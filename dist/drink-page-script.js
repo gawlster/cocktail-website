@@ -11,7 +11,9 @@ function populatePage() {
     const alcoholic = document.querySelector(".alcoholic")
     const glass = document.querySelector(".glass")
     const instructions = document.querySelector(".instructions")
-    const ingredients = document.querySelector(".left") //append paragraph tags
+    const ingredients = document.querySelector(".left")
+    const title = document.querySelector("title")
+    title.innerHTML = curDrink.drink_name
 
     image.innerHTML = "<img src='" + curDrink.drink_thumbnail + "'>"
     name.innerHTML = curDrink.drink_name
