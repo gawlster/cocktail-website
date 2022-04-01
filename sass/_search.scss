@@ -22,7 +22,7 @@
         }
         
         .category-search {
-            width:20%;
+            width:18%;
             height:4rem;
             
             @media screen and (max-width:380px) {
@@ -38,16 +38,39 @@
                     cursor:pointer;
                 }
             }
+            select {
+                all:unset;
+                place-items:center;
+                text-align:center;
+                background:$clr-accent-flat-dark;
+                color:#efeeff86;
+                transition:background .15s;
+                &:focus, &:hover {
+                    background:$clr-accent-flat-light;
+                }
+            }
         }
         
         .type-search {
-            min-width:50%;
+            min-width:48%;
             height:4rem;
+            overflow:hidden;
             
             input {
+                all:unset;
+                background:$clr-accent-flat-dark;
+                color:$clr-neutral-light;
+                padding:0 1rem;
                 width:100%;
                 height:100%;
                 font-size:120%;
+                transition:background .15s;
+                &::-webkit-input-placeholder {
+                    color:#efeeff86;
+                }
+                &:focus, &:hover {
+                    background:$clr-accent-flat-light;
+                }
             }
         }
         
@@ -55,15 +78,23 @@
             // width:20%;
             // height:4rem;
             min-height:4rem;
-            min-width:20%;
+            min-width:18%;
             
             #random-drink-btn {
+                all:unset;
+                padding:1em;
                 width:100%;
-                height:100%;
                 font-size:120%;
+                text-align:center;
+                background:$clr-accent-flat-dark;
+                transition:background .15s, color .15s;
+                color:#efeeff86;
                 
                 &:hover {
                     cursor:pointer;
+                    background:$clr-accent-flat-light;
+                    color:$clr-neutral-light;
+                    
                 }
             }
         }
@@ -82,7 +113,8 @@
             transition:transform 0.15s ease-out;
             color:$clr-neutral-light;
             text-align:center;
-            background:$clr-neutral-darker;
+            // background-color:$clr-neutral-darker;
+            background:url("../images/card-background.png");
             width:12.5rem;
             height:18rem;
             background-size: cover;
@@ -146,8 +178,8 @@
                         animation: nameAnimation .3s forwards;
                     }
                     .thumbnail {
-                        transition:.3s;
                         transform:translateY(-30%) scale(.8);
+                        transition:.3s;
                     }
                 }
                 .back {
